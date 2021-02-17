@@ -1,0 +1,29 @@
+<div class="container">
+<h2><p>List previous month's orders by customer.</p></h2>
+
+<h5>Select Customer:</h5> 
+<select class="select-css" id="selectCustomer" name="selectCustomer" [(ngModel)]="option" (change)="updateSelect()">
+    <option [value]="item.customer_id" *ngFor="let item of customerall" selected>{{item.name}}</option>
+</select>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Creation Date</th>
+        <th scope="col">Id Order</th>
+        <th scope="col">Total $</th>
+        <th scope="col">Delvery Address</th>
+        <th scope="col">Products</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <th scope="row">{{customer.creation_date}}</th>
+        <td>{{customer.order_id}}</td>
+        <td>$ {{customer.total}}</td>
+        <td>{{customer.delivery_address}}</td>
+        <td>{{customer.quantity}} x {{customer.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
